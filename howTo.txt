@@ -1,13 +1,14 @@
-Follow the following steps to run the app locally
+Follow the steps to run the app locally
 
 Activate venv
-- .venv\Scripts\deactivate
+- .venv\Scripts\activate
 
-Install dependency
-- pip3 install flask
+Install dependencies
+- pip3 install requirements.txt
 
 Run app
-- flask --app app run
+- Using flask = flask --app app run  
+- Using gunicorn = gunicorn app:app
 
 Deactivate venv
 - deactivate
