@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - Portfolio{% endblock %}
+
+{% block content %}
+<!-- Contact Header -->
+<section class="section" style="padding-top: 120px;">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title">Get In Touch</h1>
+            <p class="section-subtitle">I'd love to hear from you! Whether you have a project in mind or just want to connect.</p>
+        </div>
+        
+        <div class="grid grid-2">
+            <!-- Contact Form -->
+            <div class="card">
+                <h3 class="card-title">Send Me a Message</h3>
+                <form method="POST" style="margin-top: 1.5rem;">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name *</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email *</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-input" placeholder="What's this about?">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message *</label>
+                        <textarea id="message" name="message" class="form-textarea" required placeholder="Tell me about your project or just say hello!"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="card">
+                <h3 class="card-title">Contact Information</h3>
+                <div style="margin-top: 1.5rem;">
+                    <div style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 40px; height: 40px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                            📧
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.25rem;">Email</h4>
+                            <p style="color: var(--light-text);">{{ contact_info.email }}</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 40px; height: 40px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                            📱
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.25rem;">Phone</h4>
+                            <p style="color: var(--light-text);">{{ contact_info.phone }}</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 40px; height: 40px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                            📍
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.25rem;">Location</h4>
+                            <p style="color: var(--light-text);">{{ contact_info.location }}</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4 style="margin-bottom: 1rem;">Connect with me online:</h4>
+                        <div style="display: flex; gap: 1rem;">
+                            <a href="{{ contact_info.linkedin }}" target="_blank" class="btn" style="padding: 0.75rem; background: #0077b5;">LinkedIn</a>
+                            <a href="{{ contact_info.github }}" target="_blank" class="btn" style="padding: 0.75rem; background: #333;">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section" style="background-color: var(--light-bg);">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Common questions about working together.</p>
+        </div>
+        
+        <div class="grid grid-2">
+            <div class="card">
+                <h3 class="card-title">What services do you offer?</h3>
+                <p class="card-description">
+                    I specialize in full-stack web development, including frontend development with modern frameworks, 
+                    backend development with Python/Flask, database design, and API development.
+                </p>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title">How do you approach new projects?</h3>
+                <p class="card-description">
+                    I start by understanding your requirements and goals, then create a detailed project plan. 
+                    I believe in regular communication and iterative development to ensure the final product meets your expectations.
+                </p>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title">What's your typical response time?</h3>
+                <p class="card-description">
+                    I aim to respond to all inquiries within 24 hours. For urgent matters, 
+                    feel free to mention it in your message and I'll prioritize accordingly.
+                </p>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title">Do you work on remote projects?</h3>
+                <p class="card-description">
+                    Absolutely! I'm experienced in remote collaboration and use modern tools for communication, 
+                    project management, and version control to ensure smooth project delivery.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Ready to Start Your Project?</h2>
+            <p class="section-subtitle">Let's discuss how we can bring your ideas to life with modern web technology.</p>
+            <div class="mt-4">
+                <a href="#contact-form" class="cta-button">Send a Message</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+// Add smooth scrolling to contact form link
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.querySelector('form');
+    if (contactForm) {
+        contactForm.id = 'contact-form';
+    }
+});
+</script>
+{% endblock %}

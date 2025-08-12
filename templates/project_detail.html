@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}{{ project.title }} - Portfolio{% endblock %}
+
+{% block content %}
+<!-- Project Detail Header -->
+<section class="section" style="padding-top: 120px;">
+    <div class="container">
+        <div class="grid grid-2">
+            <div>
+                <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }}" style="width: 100%; border-radius: 1rem; box-shadow: var(--shadow-lg);">
+            </div>
+            
+            <div>
+                <h1 class="section-title" style="text-align: left; margin-bottom: 1rem;">{{ project.title }}</h1>
+                <p class="section-subtitle" style="text-align: left; margin-bottom: 2rem;">{{ project.description }}</p>
+                
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Technologies Used</h3>
+                <div class="tech-tags" style="margin-bottom: 2rem;">
+                    {% for tech in project.technologies %}
+                    <span class="tech-tag">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+                
+                <div style="display: flex; gap: 1rem;">
+                    <a href="{{ url_for('projects') }}" class="btn" style="background: var(--light-text);">← Back to Projects</a>
+                    <a href="{{ url_for('contact') }}" class="btn">Discuss Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Features -->
+<section class="section" style="background-color: var(--light-bg);">
+    <div class="container">
+        <h2 class="section-title">Project Features</h2>
+        
+        <div class="grid grid-2">
+            <div class="card">
+                <h3 class="card-title">Key Features</h3>
+                <ul style="color: var(--light-text); line-height: 1.8;">
+                    <li>Responsive and modern user interface</li>
+                    <li>Interactive data visualization</li>
+                    <li>Real-time data processing</li>
+                    <li>User authentication and authorization</li>
+                    <li>RESTful API integration</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title">Technical Highlights</h3>
+                <ul style="color: var(--light-text); line-height: 1.8;">
+                    <li>Clean and maintainable code architecture</li>
+                    <li>Database optimization and efficient queries</li>
+                    <li>Cross-browser compatibility</li>
+                    <li>Mobile-first responsive design</li>
+                    <li>Performance optimization techniques</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
