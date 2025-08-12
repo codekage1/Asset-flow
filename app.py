@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
-import os
 
 app = Flask(__name__)
-app.secret_key = 'your-secret-key-here'
 
 # Data structures for storing information
 projects_data = [
